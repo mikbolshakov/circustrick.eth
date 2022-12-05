@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-// поставить счетчик нфт
-
 contract CircusTrick {
     address owner;
     uint bank;
@@ -11,6 +9,10 @@ contract CircusTrick {
     uint maxLockDelay = 60;
     mapping(address => uint) balances;
     mapping(address => uint) timestamps;
+
+    event Paid(address sender, uint timestamp);
+    event Scammed(address sender);
+    event Lucky(address sender);
 
     constructor() {
         owner = msg.sender;
@@ -22,6 +24,8 @@ contract CircusTrick {
         balances[msg.sender] = fixValue;
         timestamps[msg.sender] = block.timestamp;
         bank += fixValue;
+
+        emit Paid(msg.sender, block.timestamp);
     }
 
     function withdrawMoney() public {
@@ -35,11 +39,15 @@ contract CircusTrick {
             block.timestamp >= timestamps[msg.sender] + maxLockDelay
         ) {
             balances[msg.sender] = 0;
+
+            emit Scammed(msg.sender);
         } else {
             address payable _to = payable(msg.sender);
             balances[msg.sender] = 0;
             bank -= fixValue;
             _to.transfer(fixValue);
+
+            emit Lucky(msg.sender);
         }
     }
 

@@ -8,7 +8,7 @@ contract CircusTrickToken is ERC721, ERC721URIStorage {
     constructor() ERC721("Circus Trick Token", "CTT") {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "ipfs://";
+        return "ipfs://QmPvD9amB58pVw8Y1Js68GUQPmdv4XmV8D2nacnAaziFqQ";
     }
 
     // The following functions are overrides required by Solidity.
