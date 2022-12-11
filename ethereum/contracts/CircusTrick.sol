@@ -5,8 +5,8 @@ contract CircusTrick {
     address owner;
     uint bank;
     uint fixValue = 0.1 ether;
-    uint minLockDelay = 30;
-    uint maxLockDelay = 60;
+    uint minLockDelay = 60;
+    uint maxLockDelay = 120;
     mapping(address => uint) balances;
     mapping(address => uint) timestamps;
 

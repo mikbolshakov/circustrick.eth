@@ -1,18 +1,28 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { DeployFunction } from "hardhat-deploy/dist/types";
+import { ethers } from "hardhat";
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
 
-const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts } = hre;
-  const { deploy } = deployments;
-  const { deployer } = await getNamedAccounts();
+async function main() {
+  const CircusTrick = await ethers.getContractFactory("CircusTrick");
+  const circusTrick = await CircusTrick.deploy();
+  const [deployer] = await ethers.getSigners();
+  
+  await circusTrick.deployed();
 
-  await deploy("CircusTrick", {
-    from: deployer,
-    log: true,
-  });
-};
+  console.log(`CircusTrick deployed to ${circusTrick.address} with the account: ${await deployer.getAddress()}`);
+  console.log("Account balance:", (await deployer.getBalance()).toString());
+}
 
-export default func;
-func.tags = ["CircusTrick"];
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
+
+/* 
+networks: {
+        goerli: {
+            url: process.env.GOERLI,
+            accounts: [<string>process.env.GOERLI_PRIVKEY],
+        },
+    },
+    */

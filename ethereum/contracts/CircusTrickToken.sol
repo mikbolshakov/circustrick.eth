@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract CircusTrickToken is ERC721, ERC721URIStorage {
-    constructor() ERC721("Circus Trick Token", "CTT") {}
+    constructor() ERC721("CircusTrickToken", "CTT") {}
 
     function _baseURI() internal pure override returns (string memory) {
         return "ipfs://QmPvD9amB58pVw8Y1Js68GUQPmdv4XmV8D2nacnAaziFqQ";
