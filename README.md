@@ -7,8 +7,9 @@ But there is a small chance that the money from this circus cashbox will disappe
 ## Install
 ```bash
 git clone https://github.com/mikbolshakov/circustrick.eth.git circustrick
-cd circustrick
-git checkout circustrick
+cd circustrick/frontend
+npm install
+cd ../ethereum
 npm install
 ```
 
@@ -16,7 +17,7 @@ npm install
 
 First, run the local blockchain:
 ```bash
-cd contracts
+cd ethereum
 npx hardhat node
 npx hardhat run scripts/deploy.ts --network localhost
 ```
