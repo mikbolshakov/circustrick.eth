@@ -19,6 +19,7 @@ main().catch((error) => {
 });
 
 /* 
+hh config:
 networks: {
         goerli: {
             url: process.env.GOERLI,

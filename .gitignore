@@ -1,12 +1,12 @@
-ethereum/node_modules
-ethereum/.env
-ethereum/coverage
-ethereum/coverage.json
-ethereum/typechain
-ethereum/typechain-types
+contracts/node_modules
+contracts/.env
+contracts/coverage
+contracts/coverage.json
+contracts/typechain
+contracts/typechain-types
 
 #Hardhat files
-ethereum/cache
-ethereum/artifacts
+contracts/cache
+contracts/artifacts
 
-client/node_modules
+frontend/node_modules
