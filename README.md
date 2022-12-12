@@ -4,9 +4,6 @@ You need to send fix amount of ether (0.1 Eth) to the circus cashbox and take it
 For this you will receive a prize - a unique opportunity to mint NFT!
 But there is a small chance that the money from this circus cashbox will disappear :)
 
-## Demo
-Here is a working live demo:  https://gh-pages/
-
 ## Install
 ```bash
 git clone https://github.com/mikbolshakov/circustrick.eth.git circustrick
